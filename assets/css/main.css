@@ -59,15 +59,6 @@
 			border-bottom-color: transparent;
 		}
 
-	strong, b {
-		color: #fff;
-		font-weight: 600;
-	}
-
-	em, i {
-		font-style: italic;
-	}
-
 	p {
 		margin: 0 0 2em 0;
 	}
