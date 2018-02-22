@@ -10,7 +10,7 @@
         "no-undef": ["off"],
         "linebreak-style": ["off"],
         "space-in-parens": ["off"],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "double"],
         "block-scoped-var": 2,
         "dot-notation": 2,
         "eqeqeq": 2,

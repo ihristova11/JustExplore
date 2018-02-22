@@ -1,113 +1,109 @@
 (function($) {
-	
-	/**
-	 * Panel-ify an element.
-	 * @param {object} userConfig User config.
-	 * @return {jQuery} jQuery object.
-	 */
+  /**
+   * Panel-ify an element.
+   * @param {object} userConfig User config.
+   * @return {jQuery} jQuery object.
+   */
 
-	$.fn.panel = function(userConfig) {
+  $.fn.panel = function(userConfig) {
 
-		
+    // Vars.
+    var $this = $(this),
+      $body = $("body"),
+      id = $this.attr("id"),
+      config;
 
-		// Vars.
-			var	$this = $(this),
-				$body = $('body'),
-				$window = $(window),
-				id = $this.attr('id'),
-				config;
+    // Config.
+    config = $.extend(
+      {
 
-		// Config.
-			config = $.extend({
+        // Delay.
+        delay: 0,
 
-				// Delay.
-					delay: 0,
+        // Hide panel on link click.
+        hideOnClick: false,
 
-				// Hide panel on link click.
-					hideOnClick: false,
+        // Hide panel on escape keypress.
+        hideOnEscape: false,
 
-				// Hide panel on escape keypress.
-					hideOnEscape: false,
+        // Hide panel on swipe.
+        hideOnSwipe: false,
 
-				// Hide panel on swipe.
-					hideOnSwipe: false,
+        // Reset scroll position on hide.
+        resetScroll: false,
 
-				// Reset scroll position on hide.
-					resetScroll: false,
+        // Reset forms on hide.
+        resetForms: false,
 
-				// Reset forms on hide.
-					resetForms: false,
+        // Side of viewport the panel will appear.
+        side: null,
 
-				// Side of viewport the panel will appear.
-					side: null,
+        // Target element for "class".
+        target: $this,
 
-				// Target element for "class".
-					target: $this,
+        // Class to toggle.
+        visibleClass: "visible"
+      },
+      userConfig
+    );
 
-				// Class to toggle.
-					visibleClass: 'visible'
+    // Expand "target" if it's not a jQuery object already.
+    if (typeof config.target != "jQuery") {
+      config.target = $(config.target);
+    }
 
-			}, userConfig);
+    // Panel.
 
-			// Expand "target" if it's not a jQuery object already.
-				if (typeof config.target != 'jQuery')
-					config.target = $(config.target);
+    // Methods.
+    $this._hide = function(event) {
 
-		// Panel.
+      // Already hidden? Bail.
+      if (!config.target.hasClass(config.visibleClass)) {
+        return;
+      }
 
-			// Methods.
-				$this._hide = function(event) {
+      // If an event was provided, cancel it.
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
-					// Already hidden? Bail.
-						if (!config.target.hasClass(config.visibleClass))
-							return;
+      // Hide.
+      config.target.removeClass(config.visibleClass);
 
-					// If an event was provided, cancel it.
-						if (event) {
+      // Post-hide stuff.
+      window.setTimeout(function() {
+  
+        // Reset scroll position.
+        if (config.resetScroll) {
+          $this.scrollTop(0);
+        }
 
-							event.preventDefault();
-							event.stopPropagation();
+        // Reset forms.
+        if (config.resetForms) {
+          $this.find("form").each(function() {
+			this.reset();
+		});
+		}
+      }, config.delay);
+    };
 
-						}
+    // Body.
 
-					// Hide.
-						config.target.removeClass(config.visibleClass);
+    // Event: Hide panel on body click/tap.
+    $body.on("click touchend", function(event) {
+      $this._hide(event);
+    });
 
-					// Post-hide stuff.
-						window.setTimeout(function() {
+    // Event: Toggle.
+    $body.on("click", "a[href=\"#" + id + "\"]", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
 
-							// Reset scroll position.
-								if (config.resetScroll)
-									$this.scrollTop(0);
+      config.target.toggleClass(config.visibleClass);
+    });
 
-							// Reset forms.
-								if (config.resetForms)
-									$this.find('form').each(function() {
-										this.reset();
-									});
-
-						}, config.delay);
-
-				};
-
-		// Body.
-
-			// Event: Hide panel on body click/tap.
-				$body.on('click touchend', function(event) {
-					$this._hide(event);
-				});
-
-			// Event: Toggle.
-				$body.on('click', 'a[href="#' + id + '"]', function(event) {
-
-					event.preventDefault();
-					event.stopPropagation();
-
-					config.target.toggleClass(config.visibleClass);
-
-				});
-
-		// Window.
-		return $this;
-	};
+    // Window.
+    return $this;
+  };
 })(jQuery);
