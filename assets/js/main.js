@@ -32,21 +32,16 @@
 					visibleClass: 'is-menu-visible'
 				});
 
-		// Header.
+				
+		   var cities = ['Sofia', 'Lovech', 'Svoge', 'Burgas'];
 
-			if ($banner.length > 0
-			&&	$header.hasClass('alt')) {
-
-				$window.on('resize', function() { $window.trigger('scroll'); });
-
-				$banner.scrollex({
-					bottom:		$header.outerHeight() + 1,
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); }
-				});
-
-			}
+			$('#search-field').on('input', function() {
+				var currentSelection = $(this).val();
+				var matches = cities.filter(function(city) {
+					return city.indexOf(currentSelection) >= 0;
+				})
+				console.log(matches);
+			})
 
 	});
 
