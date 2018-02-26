@@ -2,6 +2,7 @@
   $(function () {
     var $window = $(window),
       $body = $("body");
+    var database = databaseFunction;
 
 
 
@@ -13,10 +14,6 @@
         $body.removeClass("is-loading");
       }, 100);
     });
-
-    var database = databaseFunction();
-    search(database);
-
 
     // Menu.
     $("#menu")
