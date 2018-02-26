@@ -3,6 +3,8 @@
     var $window = $(window),
       $body = $("body");
 
+
+
     // Disable animations/transitions until the page has loaded.
     $body.addClass("is-loading");
 
@@ -11,6 +13,10 @@
         $body.removeClass("is-loading");
       }, 100);
     });
+
+    var database = databaseFunction();
+    search(database);
+
 
     // Menu.
     $("#menu")
@@ -27,7 +33,13 @@
         visibleClass: "is-menu-visible"
       });
 
-    // cities suggestions
+    // cities suggestions    S -> Sofia, Svoge ... sortBy likesCount .... for city of cities add match to other [] ... sortBy likesCount
+    // citiesHtml = citiesController(cities);
+    // landmarskHtml = landmarksController(landmarks);
+    // .suggestionsHtml = concat(citiesHtml, landmarksHtml)
+
+
+
     // var cities = ["Sofia", "Lovech", "Svoge", "Burgas"];
 
     // $("#search-field").on("input", function() {
@@ -39,11 +51,3 @@
     // });
   });
 })(jQuery);
-
-$('#search-field').on('keyup', function () {
-  if (this.value) {
-    $('.suggestions').html("<strong>IT WORKS DG</strong>");
-  } else {
-    $('.suggestions').empty();
-  }
-});

@@ -18,7 +18,7 @@
         hideOnClick: false,
 
         // Hide panel on escape keypress.
-        hideOnEscape: false,
+        hideOnEscape: true,
 
         // Hide panel on swipe.
         hideOnSwipe: false,

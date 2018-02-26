@@ -19,22 +19,30 @@ const databaseFunction = function () {
       },
       {
         name: "Lisets",
-        likesCount: 5,
+        likesCount:35,
         landmarks: [{
           name: "Irina's house",
-          description: "A masterpiece of pre-war architecture Irina's house welcomes you with cosy atmosphere and nice tea",
+          description: "A masterpiece of pre-war architecture, Irina's house welcomes you with cosy atmosphere and nice tea",
           imgSrc: "./images/cities/lisets/irinas-house.jpg",
-          likes: 5
+          likes: 35
         }]
       },
       {
         name: "Burgas",
-        likesCount: 2,
+        likesCount: 36,
         landmarks: [{
           name: "Getting beaten by Batkas",
-          description: "Oh the long forgotten call of the bruises. Oh the sounds of metal hitting flesh."
-          imgSrc: "./images/cities/burgas/getting-beaten-by-batkas.jpg"
-        }]
+          description: "Oh the long forgotten call of the wild. Oh the sounds of steps behind you.",
+          imgSrc: "./images/cities/burgas/getting-beaten-by-batkas.jpg",
+          likes: 35
+        },
+        {
+          name: "The bridge",
+          description: "The Burgas bridge is popular place for jumping in the water, taking girls on romantic and cheap walks and general lollygagging",
+          imgSrc: "./images/cities/burgas/burgas-bridge.jpg",
+          likes: 1
+        }
+      ]
       }
     ]
   };
