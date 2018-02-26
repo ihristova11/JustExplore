@@ -1,10 +1,4 @@
 (function($) {
-  /**
-   * Panel-ify an element.
-   * @param {object} userConfig User config.
-   * @return {jQuery} jQuery object.
-   */
-
   $.fn.panel = function(userConfig) {
 
     // Vars.
@@ -73,7 +67,7 @@
 
       // Post-hide stuff.
       window.setTimeout(function() {
-  
+
         // Reset scroll position.
         if (config.resetScroll) {
           $this.scrollTop(0);
