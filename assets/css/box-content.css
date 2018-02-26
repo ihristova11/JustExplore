@@ -1,8 +1,10 @@
 .box-content {
-    background-color: rgb(103, 108, 158);
+	background: rgba(144, 144, 144, 0.25);
     margin: auto;
     width: 50%;
-    border: 3px solid rgb(30, 34, 90);
+    /*border: 1px solid rgba(15, 15, 15, 0.4);*/
+    border: none;
+    border-radius: 20px;
     padding: 10px;
-    opacity: 0.5;
+    position: absolute;
 }
