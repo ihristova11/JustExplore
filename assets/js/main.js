@@ -1,22 +1,17 @@
-(function ($) {
-  $(function () {
+(function($) {
+  $(function() {
     var $window = $(window),
       $body = $("body");
-
-
+    var database = databaseFunction;
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass("is-loading");
 
-    $window.on("load", function () {
-      window.setTimeout(function () {
+    $window.on("load", function() {
+      window.setTimeout(function() {
         $body.removeClass("is-loading");
       }, 100);
     });
-
-    var database = databaseFunction();
-    search(database);
-
 
     // Menu.
     $("#menu")
@@ -37,9 +32,6 @@
     // citiesHtml = citiesController(cities);
     // landmarskHtml = landmarksController(landmarks);
     // .suggestionsHtml = concat(citiesHtml, landmarksHtml)
-
-
-
     // var cities = ["Sofia", "Lovech", "Svoge", "Burgas"];
 
     // $("#search-field").on("input", function() {
