@@ -1,0 +1,8 @@
+.box-content {
+    background-color: rgb(103, 108, 158);
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(30, 34, 90);
+    padding: 10px;
+    opacity: 0.5;
+}
