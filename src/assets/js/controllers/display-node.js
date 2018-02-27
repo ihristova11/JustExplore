@@ -6,10 +6,10 @@ const displayNode = (function() {
     var result = `
             <div class="gallery display-node">
             <button type="button" class="btn-up" aria-label="Left Align">
-            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            <img src="images/icons-gallery/up.png">
         </button>
         <button type="button" class="btn-close" aria-label="Left Align">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <img src="images/icons-gallery/close.png">
             </button>
                 <div class="node-info">
                     <p class="node-name">${node.name}</p>
