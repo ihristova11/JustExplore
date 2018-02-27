@@ -1,4 +1,4 @@
-const databaseFunction = (function () {
+const databaseFunction = (function() {
   return {
     data: {
       name: "JUST EXPLORE",

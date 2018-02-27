@@ -1,9 +1,9 @@
-const search = (function (database) {
+const search = (function(database) {
   $(configuration.mainDiv).off();
 
   const searchDiv = "#search-field";
 
-  $(configuration.mainDiv).on("input", searchDiv, function (e) {
+  $(configuration.mainDiv).on("input", searchDiv, function(e) {
 
     function Dfs(value, node, results) {
       if (!node.isHome) {
