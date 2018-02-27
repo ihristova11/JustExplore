@@ -3,11 +3,6 @@
     var $window = $(window),
       $body = $("body");
     var database = databaseFunction;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> ae7756e28d55be316906956b708f1ad2fc0db8eb
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass("is-loading");
