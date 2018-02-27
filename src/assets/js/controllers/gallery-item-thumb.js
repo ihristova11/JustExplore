@@ -1,7 +1,7 @@
 const galleryItemThumb = (function() {
   const thumb = function(node) {
     return `
-        
+    <div>
         <div class="blog-card">
         <div class="title-content">
             <h3>
@@ -18,7 +18,7 @@ const galleryItemThumb = (function() {
         <div class="gradient-overlay"></div>
         <div class="color-overlay"></div>
     </div>
-
+</div>
         `;
   };
 
