@@ -23,9 +23,6 @@ const search = (function (database) {
 
     const results = [];
 
-    // const results = database.cities.filter(
-    //   c => c.name.toLowerCase().indexOf(value.toLowerCase()) == 0
-    // );
     Dfs(value, database.data, results);
 
     if (!value || !results.length) {
@@ -33,11 +30,16 @@ const search = (function (database) {
       return;
     }
 
+    const sortedResults = results.slice(0);
+    sortedResults.sort(function (a, b) {
+      return b.likesCount - a.likesCount;
+    });
+
     const cityController = listItemNode;
     const galleryController = displayNode;
 
     $(".suggestions").html(`<ul class="suggestions-box">
-        ${results
+        ${sortedResults
           .map(c => {
             $(".suggestions").on("click", `#${c.name}`, function() {
               $(".actions-actuator").append(galleryController.html(c));
