@@ -7,10 +7,10 @@
     position: absolute;
     font-family: 'Droid Serif', serif;
     color: #fff;
-    top: 20%;
+    /* top: 20%;
     right: 0;
     left: 0;
-    margin: 0 auto;
+    margin: 0 auto; */
     overflow: hidden;
     border-radius: 0px;
     box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
