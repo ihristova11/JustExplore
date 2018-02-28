@@ -69,10 +69,10 @@
 // })();
 
 const databaseFunction = function() {
-  var dataObj=[];
+  var dataObj = [];
   $.ajax({
     async: false,
-    url: config.localDb,
+    url: configuration.localDb,
     type: "get",
     dataType: "json",
     error: function(data) {},

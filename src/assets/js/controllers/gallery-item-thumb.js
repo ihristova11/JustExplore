@@ -25,8 +25,7 @@ const galleryItemThumb = (function() {
 
 
 </div>
-        </li>
-        
+        </li>     
 
 
         `;

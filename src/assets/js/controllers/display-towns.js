@@ -1,5 +1,5 @@
 const displayTownsCtrl = (function(database) {
-    const node = database.data;
+    const node = databaseFunction();
 
     function displayTown() {
         const galleryController = displayNode;

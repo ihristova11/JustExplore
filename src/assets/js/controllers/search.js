@@ -23,7 +23,7 @@ const search = (function(database) {
 
     const results = [];
 
-    dfs(value, database.data, results);
+    dfs(value, databaseFunction(), results);
 
     if (!value || !results.length) {
       $(".suggestions").empty();
