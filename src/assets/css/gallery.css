@@ -1,13 +1,13 @@
 .gallery {
-    /* background: rgba(144, 144, 144, 0.25);
+    background: rgba(144, 144, 144, 0.25);
     margin: auto;
-    margin-top: 5%; 
+    /* margin-top: 5%; */
     margin-bottom: 4%;
     border: 3px solid rgba(15, 15, 15, 0.4);
     border-radius: 7px;
     padding: 10px;
     overflow: auto;
-    height: 40em; */
+    height: 40em;
 
     background: rgba(144, 144, 144, 0.25);
     margin: auto;
