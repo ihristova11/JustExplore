@@ -1,6 +1,7 @@
 const configuration = (function() {
 
     return {
-        mainDiv: "main"
+        mainDiv: "main",
+        localDb: "/assets/database.json"
     };
 })();
