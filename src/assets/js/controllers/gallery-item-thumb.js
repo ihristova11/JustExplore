@@ -17,7 +17,6 @@ const galleryItemThumb = (function() {
 </div>
 
 <div class="gradient-overlay"></div>
-<div class="color-overlay"></div>
 </div>
         </li>
 

@@ -18,6 +18,10 @@
     background-size: 100%;
 }
 
+.blog-card * {
+    text-shadow: 0px 0px 10px rgba(99, 99, 99, 0.8);
+}
+
 .blog-card a {
     color: #fff;
     text-decoration: none;
@@ -26,8 +30,9 @@
 .blog-card .color-overlay {
     background: rgba(84, 84, 84, 0.4);
     /* width: 550px; */
-    height: 500px;
+    height: 430px;
     /* position: absolute; */
+    margin-top: -430px;
     z-index: 10;
     top: 0;
     left: 0;
@@ -35,15 +40,19 @@
 }
 
 .blog-card .gradient-overlay {
-
     background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
     /* width: 550px; */
-    height: 500px;
+    height:500px;
+    margin-top: -430px;
     /* position: absolute; */
-    top: 350px;
+    top: 0px;
     left: 0;
     z-index: 15;
 }
+
+/* .blog-card:hover .gradient-overlay {
+    height: 500px;
+} */
 
 .blog-card:hover {
     box-shadow: 0px 18px 20px -9px rgba(0, 0, 0, 0.75);
@@ -73,16 +82,15 @@
     transition: all 0.6s
 }
 
-
 .blog-card h3 {
     font-size: 1.9em;
     font-weight: 400;
     letter-spacing: 1px;
-    font-family: 'Abril Fatface', serif;
+    /* font-family: 'Abril Fatface', serif; */
     margin-bottom: 0;
     margin-top: 3%;
     display: inline-block;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
     transition: all 0.2s
 }
 
@@ -96,7 +104,7 @@
 }
 
 .blog-card h3:hover {
-    text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95);
+    /* text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95); */
 }
 
 .intro {
@@ -112,7 +120,7 @@
     /* position: absolute; */
     bottom: -40px;
     left: 0;
-    margin: -40px auto;
+    /* margin: -40px auto; */
     padding: 0 50px;
     /* font-style: 16px; */
     line-height: 24px;
@@ -120,7 +128,6 @@
     opacity: 0;
     transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
-
 
 .card-info a:hover {
     background: #8e7c49;
