@@ -5,7 +5,7 @@
        {  
           "name":"Sofia",
           "desc":"Sofia is the capital of Bulgaria",
-          "imgSrc":"./images/cities/sofia/telerik-academy.jpg",
+          "imgSrc":"./images/cities/sofia/sofia.jpg",
           "likesCount":48,
           "parentName":"JUST EXPLORE",
           "childNodes":[  
@@ -28,7 +28,7 @@
        {  
           "name":"Samokov",
           "desc":"Something need to be written here",
-          "imgSrc":"./images/cities/sofia/telerik-academy.jpg",
+          "imgSrc":"./images/cities/samokov/samokov.png",
           "likesCount":48,
           "parentName":"JUST EXPLORE",
           "childNodes":[  
@@ -60,7 +60,7 @@
        {  
           "name":"Burgas",
           "desc":"Burgas is a big city and important port on the black sea coast",
-          "imgSrc":"./images/cities/sofia/telerik-academy.jpg",
+          "imgSrc":"./images/cities/burgas/burgas.jpg",
           "likesCount":36,
           "parentName":"JUST EXPLORE",
           "childNodes":[  
