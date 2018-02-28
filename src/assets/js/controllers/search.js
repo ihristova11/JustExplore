@@ -42,6 +42,8 @@ const search = (function(database) {
         ${sortedResults
           .map(c => {
             $(".suggestions").on("click", `#${c.name}`, function() {
+              $("#search-field").val("");
+              $(".suggestions").empty();
               $(".actions-actuator").append(galleryController.html(c));
             });
             return cityController.html(c);
