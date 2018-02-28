@@ -5,16 +5,16 @@ const search = (function(database) {
 
   $(configuration.mainDiv).on("input", searchDiv, function(e) {
 
-    function Dfs(value, node, results) {
+    function dfs(value, node, results) {
       if (!node.isHome) {
-        if (node.name.toLowerCase().indexOf(value.toLowerCase()) == 0) {
+        if (node.name.toLowerCase().indexOf(value.toLowerCase()) === 0) {
           results.push(node);
         }
       }
 
       if (node.childNodes && node.childNodes.length) {
         for (var childNode of node.childNodes) {
-          Dfs(value, childNode, results);
+          dfs(value, childNode, results);
         }
       }
     }
@@ -23,7 +23,7 @@ const search = (function(database) {
 
     const results = [];
 
-    Dfs(value, database.data, results);
+    dfs(value, database.data, results);
 
     if (!value || !results.length) {
       $(".suggestions").empty();
@@ -31,7 +31,7 @@ const search = (function(database) {
     }
 
     const sortedResults = results.slice(0);
-    sortedResults.sort(function (a, b) {
+    sortedResults.sort(function(a, b) {
       return b.likesCount - a.likesCount;
     });
 
