@@ -1,5 +1,8 @@
 const galleryItemThumb = (function() {
   const thumb = function(node) {
+      $(".gallery").on("click", `#${node.name}`, function() {
+
+      });
     return `
     
 <li class="gallery-item" id="${node.name}" style="background-image: url(${node.imgSrc});">

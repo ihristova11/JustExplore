@@ -1,9 +1,9 @@
-const search = (function(database) {
+const search = (function (database) {
   $(configuration.mainDiv).off();
 
   const searchDiv = "#search-field";
 
-  $(configuration.mainDiv).on("input", searchDiv, function(e) {
+  $(configuration.mainDiv).on("input", searchDiv, function (e) {
 
     function dfs(value, node, results) {
       if (!node.isHome) {
@@ -31,7 +31,7 @@ const search = (function(database) {
     }
 
     const sortedResults = results.slice(0);
-    sortedResults.sort(function(a, b) {
+    sortedResults.sort(function (a, b) {
       return b.likesCount - a.likesCount;
     });
 
@@ -42,10 +42,22 @@ const search = (function(database) {
         ${sortedResults
           .map(c => {
             $(".suggestions").on("click", `#${c.name}`, function() {
+              $(".actions-actuator").off();
+              $(".actions-actuator").empty();
               $("#search-field").val("");
               $(".suggestions").empty();
               $(".actions-actuator").append(galleryController.html(c));
-            });
+
+              $(".actions-actuator").on("click", ".btn-close", function () {
+                $(".actions-actuator").off();
+                $(".actions-actuator").empty();
+              });
+              
+              $(".actions-actuator").on("click", ".btn-close", function () {
+               $(".actions-actuator").off();
+               $(".actions-actuator").empty();
+          });
+});
             return cityController.html(c);
           })
           .join("")} </ul>`);
