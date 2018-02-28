@@ -13,6 +13,8 @@
       }, 100);
     });
 
+    displayTownsCtrl.displayTown();
+
     // Menu.
     $("#menu")
       .append("<a href=\"#menu\"></a>")

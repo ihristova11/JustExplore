@@ -171,7 +171,7 @@ ul.actions {
 
 ul.actions li {
 	display: inline-block;
-	padding: 0 1.5em 0 0;
+	padding: 0 0 0 0;
 	vertical-align: middle;
 }
 
@@ -179,6 +179,16 @@ ul.actions li:last-child {
 	padding-right: 0;
 }
 
+ul.suggestions-box li {
+	display: block;
+}
+
+li.gallery-item {
+	margin: 3em;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 /* Page Wrapper + Menu */
 
 #page-wrapper {
