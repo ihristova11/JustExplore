@@ -18,8 +18,12 @@
     border-radius: 7px;
     padding: 10px;
     overflow: auto;
-    height: 40em;
-    width: 80em;
+    height: 62%;
+    width: 62%;
+    top: 19%;
+    left: 19%;
+    position: fixed;
+    z-index: 5;
     /* display: block; */
     /* padding: 0px 5em 0 5em; */
     /* vertical-align: middle; */

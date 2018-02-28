@@ -412,6 +412,7 @@ body.is-loading #banner:after {
 }
 
 /* Suggestions */
+
 .suggestions {
 	width: 265px;
 	position: absolute;
@@ -419,10 +420,10 @@ body.is-loading #banner:after {
 
 .suggestions-box {
 	background: rgba(144, 144, 144, 0.25);
-    margin: auto;
-    border-top: 3px solid rgba(15, 15, 15, 0.4);
-    border-radius: 0px 0px 3px 3px;
-    padding: 10px;
+	margin: auto;
+	border-top: 3px solid rgba(15, 15, 15, 0.4);
+	border-radius: 0px 0px 3px 3px;
+	padding: 10px;
 	width: 100%;
 }
 
@@ -430,12 +431,16 @@ body.is-loading #banner:after {
 
 #main>header {
 	padding: 12em 0 10em 0;
-	background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/banner.jpg");
+	text-align: center;
+}
+
+.background-image {
+	background: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/banner.jpg");
 	background-attachment: fixed;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	text-align: center;
+	transition: filter 0.4s;	
 }
 
 #main>header h2 {
@@ -454,12 +459,12 @@ body.is-loading #banner:after {
 	color: inherit;
 }
 
-.actions-actuator {
+/* .actions-actuator {
 	z-index: 5;
 	position: fixed;
 	left: 0;
 	top: 0;
-}
+} */
 
 /* Landing */
 
