@@ -1,5 +1,5 @@
-const displayNode = (function () {
-  const html = function (node) {
+const displayNode = (function() {
+  const html = function(node) {
     const childNodesThumbController = galleryItemThumb;
 
     //TODO: var sortedLandmarks = ;
@@ -17,7 +17,11 @@ const displayNode = (function () {
     </div>
     </div>
     <ul class="thumbnails-gallery">
-        ${node.childNodes .map(x => { return childNodesThumbController.thumb(x); }) .join("")}
+        ${node.childNodes
+          .map(x => {
+            return childNodesThumbController.thumb(x);
+          })
+          .join("")}
     </ul>
 </div>
         `;

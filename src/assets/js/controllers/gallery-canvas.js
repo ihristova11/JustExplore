@@ -28,8 +28,8 @@ const galleryCanvas = (function() {
     };
 
     return {
-        getGalleryCanvas, 
-        clearGalleryCanvas, 
+        getGalleryCanvas,
+        clearGalleryCanvas,
         closeGalleryCanvas
     };
 })();
