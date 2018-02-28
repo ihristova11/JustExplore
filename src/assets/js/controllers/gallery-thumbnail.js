@@ -1,0 +1,29 @@
+const galleryThumbnail = (function() {
+    const createThumbnail = function(node) {
+        return `
+            <div class="blog-card">
+                <div class="title-content">
+                    <h3>
+                        ${node.name}
+                    </h3>
+                    <div class="intro">
+                        <h4>${node.parentName}</h4>
+                    </div>
+                </div>
+                <div class="card-info">
+                    ${node.desc}
+                    <div class="btn-like">
+                        <img src="images/icons-gallery/like-btn-p.png" alt="like button">
+                        <span class="likesCount">${node.likesCount}</span>
+                    </div>
+                </div>
+                <div class="gradient-overlay">
+                </div>
+            </div>
+        `;
+    };
+
+    return {
+        createThumbnail
+    };
+})();
