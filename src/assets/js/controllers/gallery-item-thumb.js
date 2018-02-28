@@ -2,7 +2,7 @@ const galleryItemThumb = (function() {
   const thumb = function(node) {
     return `
     
-<li class="gallery-item" id="${node.name}">
+<li class="gallery-item" id="${node.name}" style="background-image: url(${node.imgSrc});">
 <div class="blog-card">
 <div class="title-content">
     <h3>
