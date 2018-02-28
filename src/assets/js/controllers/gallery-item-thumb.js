@@ -14,12 +14,18 @@ const galleryItemThumb = (function() {
 </div>
 <div class="card-info">
     ${node.desc}
+    <div class="btn-like">
+<img src="images/icons-gallery/like-btn-p.png" alt="like button">
+</div>
 </div>
 
-<div class="gradient-overlay"></div>
+<div class="gradient-overlay">
+
+</div>
+
+
 </div>
         </li>
-
         
 
 
