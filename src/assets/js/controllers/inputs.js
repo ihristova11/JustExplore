@@ -1,0 +1,3 @@
+const inputsMethods = (function() {
+
+} )();

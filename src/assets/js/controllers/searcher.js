@@ -33,7 +33,7 @@ const searcher = (function(objTree) {
             }
         }
     };
-    
+
     return {
         findBeginningWith,
         findExactMatch
