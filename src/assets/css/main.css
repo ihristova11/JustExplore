@@ -185,6 +185,7 @@ ul.suggestions-box li {
 
 li.gallery-item {
 	margin: 3em;
+	width: 340px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
