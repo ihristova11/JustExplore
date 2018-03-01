@@ -41,6 +41,7 @@ button:hover {
 button:focus {
     outline: none;
 }
+
 .btn-up {
     float: left;
 }
