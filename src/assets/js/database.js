@@ -16,5 +16,3 @@ const databaseFunction = function() {
   });
   return dataObj[0];
 };
-
-// console.log(databaseFunction().isHome)

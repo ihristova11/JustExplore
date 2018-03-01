@@ -470,13 +470,6 @@ body.is-loading #banner:after {
 	color: inherit;
 }
 
-/* .actions-actuator {
-	z-index: 5;
-	position: fixed;
-	left: 0;
-	top: 0;
-} */
-
 /* Landing */
 
 body.landing #page-wrapper {

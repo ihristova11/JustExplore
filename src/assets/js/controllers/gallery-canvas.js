@@ -16,6 +16,6 @@ const galleryCanvas = (function() {
     })();
 
     return {
-        getGalleryCanvas,
+        getGalleryCanvas
     };
 })();

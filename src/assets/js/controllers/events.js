@@ -1,11 +1,11 @@
-const events = (function (
+const events = (function(
   suggestionsBoxCreator,
   galleryCanvasCreator,
   galleryContentCreator,
   searcher
 ) {
-  const bindSearchBoxInput = (function () {
-    $(configuration.mainDiv).on("input", "#search-field", function () {
+  const bindSearchBoxInput = (function() {
+    $(configuration.mainDiv).on("input", "#search-field", function() {
       var value = $("#search-field").val();
       if (!value) {
         return;
@@ -16,13 +16,13 @@ const events = (function (
         return;
       }
 
-      suggestions = suggestions.sort(function (a, b) {
+      suggestions = suggestions.sort(function(a, b) {
         return b.likesCount - a.likesCount;
       });
 
       $(".suggestions").html(suggestionsBoxCreator.getSuggestions(suggestions));
       suggestions.map(s => {
-        $(".suggestions").on("click", `#${s.name}`, function () {
+        $(".suggestions").on("click", `#${s.name}`, function() {
           $("#search-field").val("");
           $(".suggestions").empty();
           galleryView(s);
@@ -31,23 +31,23 @@ const events = (function (
     });
   })();
 
-  const bindMenuTowns = (function () {
-    $("#towns").on("click", function () {
+  const bindMenuTowns = (function() {
+    $("#towns").on("click", function() {
       galleryView(searcher.getTopNode);
     });
   })();
 
-  const bindCloseButton = function () {
+  const bindCloseButton = function() {
     if (!$(".gallery").length) {
       return;
     }
-    $(".gallery").on("click", ".btn-close", function () {
+    $(".gallery").on("click", ".btn-close", function() {
       closeGalleryCanvas();
     });
   };
 
-  const bindEscpeKey = (function () {
-    $("body").on("keyup", function (e) {
+  const bindEscpeKey = (function() {
+    $("body").on("keyup", function(e) {
       if (!$(".gallery").length) {
         return;
       }
@@ -59,7 +59,7 @@ const events = (function (
     });
   })();
 
-  const bindUpButton = function () {
+  const bindUpButton = function() {
     if (!$(".gallery").length) {
       return;
     }
@@ -72,12 +72,12 @@ const events = (function (
     }
 
     var target = searcher.findExactMatch(thisNode.parentName);
-    $(".gallery").on("click", ".btn-up", function () {
+    $(".gallery").on("click", ".btn-up", function() {
       galleryView(target);
     });
   };
 
-  const galleryView = function (node) {
+  const galleryView = function(node) {
     if (!$(".gallery").length) {
       $(".actions-actuator").append(galleryCanvasCreator.getGalleryCanvas);
       bindCloseButton();
@@ -92,30 +92,36 @@ const events = (function (
     bindUpButton();
 
     if (node.childNodes && node.childNodes.length) {
-      node.childNodes.map(c => (function (c) {
-        $(".gallery .content-container").on("click", `#${c.name}`, function () {
-          galleryView(c);
-        });
-      })(c));
+      node.childNodes.map(c =>
+        (function(c) {
+          $(".gallery .content-container").on(
+            "click",
+            `#${c.name}`,
+            function() {
+              galleryView(c);
+            }
+          );
+        })(c)
+      );
     }
   };
 
-  const clearGalleryCanvas = function () {
+  const clearGalleryCanvas = function() {
     if ($(".gallery").length) {
       $(".gallery .content-container").empty();
     }
   };
 
-  const closeGalleryCanvas = function () {
+  const closeGalleryCanvas = function() {
     if ($(".gallery").length) {
       $(".actions-actuator").empty();
     }
   };
 
-  const bindMenu = (function () {
+  const bindMenu = (function() {
     var $body = "body";
     $("#menu")
-      .append("<a href=\"#menu\"></a>")
+      .append('<a href="#menu"></a>')
       .appendTo($body)
       .panel({
         delay: 500,
@@ -128,5 +134,4 @@ const events = (function (
         visibleClass: "is-menu-visible"
       });
   })();
-
 })(suggestionsBox, galleryCanvas, galleryContent, searcher);

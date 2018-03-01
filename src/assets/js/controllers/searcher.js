@@ -1,6 +1,6 @@
-const searcher = (function (data) {
+const searcher = (function(data) {
   var objTree = data();
-  const findBeginningWith = function (value) {
+  const findBeginningWith = function(value) {
     const results = [];
 
     function dfs(value, node, results) {
@@ -19,7 +19,7 @@ const searcher = (function (data) {
     return results;
   };
 
-  const findExactMatch = function (value) {
+  const findExactMatch = function(value) {
     function dfs(value, node) {
       if (node.name.toLowerCase() === value.toLowerCase()) {
         return node;

@@ -1,41 +1,33 @@
 (function($) {
   $.fn.panel = function(userConfig) {
 
-    // Vars.
     var $this = $(this),
       $body = $("body"),
       id = $this.attr("id"),
       config;
 
-    // Config.
+    // config.
     config = $.extend(
       {
-
-        // Delay.
         delay: 0,
 
-        // Hide panel on link click.
         hideOnClick: false,
 
-        // Hide panel on escape keypress.
         hideOnEscape: true,
 
-        // Hide panel on swipe.
         hideOnSwipe: false,
 
-        // Reset scroll position on hide.
+        // reset on hide.
         resetScroll: false,
 
-        // Reset forms on hide.
         resetForms: false,
 
-        // Side of viewport the panel will appear.
         side: null,
 
-        // Target element for "class".
+        // target element for "class".
         target: $this,
 
-        // Class to toggle.
+        // class to toggle.
         visibleClass: "visible"
       },
       userConfig
@@ -48,32 +40,27 @@
 
     // Panel.
 
-    // Methods.
     $this._hide = function(event) {
 
-      // Already hidden? Bail.
+      // already hidden
       if (!config.target.hasClass(config.visibleClass)) {
         return;
       }
 
-      // If an event was provided, cancel it.
+      // cancel event
       if (event) {
         event.preventDefault();
         event.stopPropagation();
       }
-
-      // Hide.
+      
       config.target.removeClass(config.visibleClass);
-
-      // Post-hide stuff.
+      
       window.setTimeout(function() {
 
-        // Reset scroll position.
         if (config.resetScroll) {
           $this.scrollTop(0);
         }
 
-        // Reset forms.
         if (config.resetForms) {
           $this.find("form").each(function() {
 			this.reset();
@@ -84,12 +71,12 @@
 
     // Body.
 
-    // Event: Hide panel on body click/tap.
+    // hide panel on body click
     $body.on("click touchend", function(event) {
       $this._hide(event);
     });
 
-    // Event: Toggle.
+    // toggle.
     $body.on("click", "a[href=\"#" + id + "\"]", function(event) {
       event.preventDefault();
       event.stopPropagation();
