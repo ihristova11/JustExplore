@@ -1,7 +1,7 @@
 const suggestionsBox = (function() {
   const getSuggestions = function(suggestions) {
     return `
-            <ul class="suggestions-box>
+            <ul class="suggestions-box">
                 ${suggestions.map(s => getIndividualSuggestion(s)).join("")}
             </ul>
         `;

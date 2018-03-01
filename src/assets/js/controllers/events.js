@@ -1,13 +1,12 @@
-const events = (function(
-  configuration,
+const events = (function (
   suggestionsBoxCreator,
   galleryCanvasCreator,
   galleryContentCreator,
   searcher
 ) {
-  const bindSearchBoxInput = (function() {
-    $(configuration.mainDiv).on("input", "#search-field", function() {
-      var value = $("#search-field").value;
+  const bindSearchBoxInput = (function () {
+    $(configuration.mainDiv).on("input", "#search-field", function () {
+      var value = $("#search-field").val();
       if (!value) {
         return;
       }
@@ -17,14 +16,14 @@ const events = (function(
         return;
       }
 
-      suggestions.sort(function(a, b) {
+      suggestions = suggestions.sort(function (a, b) {
         return b.likesCount - a.likesCount;
       });
 
-      suggestions = suggestionsBoxCreator.getSuggestions(suggestions);
+      $(".suggestions").html(suggestionsBoxCreator.getSuggestions(suggestions));
       suggestions.map(s => {
-        $(".suggestions").on("click", `#${s.name}`, function() {
-          $("search-field").val("");
+        $(".suggestions").on("click", `#${s.name}`, function () {
+          $("#search-field").val("");
           $(".suggestions").empty();
           galleryView(s);
         });
@@ -32,36 +31,71 @@ const events = (function(
     });
   })();
 
-  const bindMenuTowns = (function() {
-    $("#towns").on("click", function() {
+  const bindMenuTowns = (function () {
+    $("#towns").on("click", function () {
       galleryView(searcher.getTopNode);
     });
   })();
 
-  const bindCloseButton = function() {};
-
-  const galleryView = function(node) {
-    if (!$(".gallery")) {
-      $(".actions-actuator").append(galleryCanvasCreator.getGalleryCanvas());
-      $(".gallery").on(
-        "click",
-        ".btn-close",
-        galleryCanvasCreator.closeGelleryCanvas
-      );
+  const bindCloseButton = function () {
+    if (!$(".gallery").length) {
+      return;
     }
-    galleryCanvasCreator.clearGalleryCanvas();
+    $(".gallery").on("click", ".btn-close", function() {
+    closeGalleryCanvas();
+    });
+  };
+
+  const galleryView = function (node) {
+    if (!$(".gallery").length) {
+      $(".actions-actuator").append(galleryCanvasCreator.getGalleryCanvas);
+      bindCloseButton();
+    }
+
+    clearGalleryCanvas();
+
     $(".gallery .content-container").append(
       galleryContentCreator.getThumbnailsView(node)
     );
     node.childNodes.map(
       c =>
-        function() {
-          $(".gallery .content-container").on(
-            "click",
-            `#${c.name}`,
-            galleryView(c)
-          );
-        }
+      function () {
+        $(".gallery .content-container").on(
+          "click",
+          `#${c.name}`,
+          galleryView(c)
+        );
+      }
     );
   };
-})();
+
+  const clearGalleryCanvas = function () {
+    if ($(".gallery").length) {
+      $(".gallery .content-container").empty();
+    }
+  };
+
+  const closeGalleryCanvas = function () {
+    if ($(".gallery").length) {
+      $(".actions-actuator").empty();
+    }
+  };
+
+  const bindMenu = (function () {
+    var $body = "body";
+    $("#menu")
+      .append("<a href=\"#menu\"></a>")
+      .appendTo($body)
+      .panel({
+        delay: 500,
+        hideOnClick: true,
+        hideOnSwipe: true,
+        resetScroll: true,
+        resetForms: true,
+        side: "right",
+        target: $body,
+        visibleClass: "is-menu-visible"
+      });
+  })();
+
+})(suggestionsBox, galleryCanvas, galleryContent, searcher);

@@ -1,5 +1,6 @@
-const searcher = (function(objTree) {
-  const findBeginningWith = function(value) {
+const searcher = (function (data) {
+  var objTree = data();
+  const findBeginningWith = function (value) {
     const results = [];
 
     function dfs(value, node, results) {
@@ -20,17 +21,20 @@ const searcher = (function(objTree) {
     return results;
   };
 
-  const findExactMatch = function(value) {
+  const findExactMatch = function (value) {
     function dfs(value, node) {
       if (!node.isHome) {
-        if (node.name.toLowerCase() === value.toLowerCase) {
+        if (node.name.toLowerCase() === value.toLowerCase()) {
           return node;
         }
       }
 
       if (node.childNodes && node.childNodes.length) {
         for (var childNode of node.childNodes) {
-          return dfs(value, childNode);
+          var result = dfs(value, childNode);
+          if (result) {
+            return result;
+          }
         }
       }
     }
@@ -46,4 +50,4 @@ const searcher = (function(objTree) {
     findExactMatch,
     getTopNode
   };
-})();
+})(databaseFunction);

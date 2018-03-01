@@ -1,9 +1,10 @@
-const search = (function(database) {
+const search = (function (database) {
   $(configuration.mainDiv).off();
 
   const searchDiv = "#search-field";
 
-  $(configuration.mainDiv).on("input", searchDiv, function(e) {
+  $(configuration.mainDiv).on("input", searchDiv, function (e) {
+
     function dfs(value, node, results) {
       if (!node.isHome) {
         if (node.name.toLowerCase().indexOf(value.toLowerCase()) === 0) {
@@ -19,11 +20,10 @@ const search = (function(database) {
     }
 
     const value = $(e.target).val();
-    const results = [];
-    const db = databaseFunction();
-    
 
-    dfs(value, db, results);
+    const results = [];
+
+    dfs(value, databaseFunction(), results);
 
     if (!value || !results.length) {
       $(".suggestions").empty();
@@ -31,7 +31,7 @@ const search = (function(database) {
     }
 
     const sortedResults = results.slice(0);
-    sortedResults.sort(function(a, b) {
+    sortedResults.sort(function (a, b) {
       return b.likesCount - a.likesCount;
     });
 
@@ -48,16 +48,16 @@ const search = (function(database) {
               $(".suggestions").empty();
               $(".actions-actuator").append(galleryController.html(c));
 
-              $(".actions-actuator").on("click", ".btn-close", function() {
+              $(".actions-actuator").on("click", ".btn-close", function () {
                 $(".actions-actuator").off();
                 $(".actions-actuator").empty();
               });
-
-              $(".actions-actuator").on("click", ".btn-close", function() {
-                $(".actions-actuator").off();
-                $(".actions-actuator").empty();
-              });
-            });
+              
+              $(".actions-actuator").on("click", ".btn-close", function () {
+               $(".actions-actuator").off();
+               $(".actions-actuator").empty();
+          });
+});
             return cityController.html(c);
           })
           .join("")} </ul>`);

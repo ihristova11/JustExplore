@@ -5,7 +5,7 @@ const galleryContent = (function(thumbnailCreator) {
             <p class="node-name">${node.name}</p>
         </div>
         <ul class="thumbnails-gallery">
-            ${node.childNodes .map(x => {
+            ${node.childNodes.map(x => {
                 return thumbnailCreator.createThumbnail(x);
             }) .join("")}
         </ul>
@@ -15,4 +15,4 @@ const galleryContent = (function(thumbnailCreator) {
     return {
         getThumbnailsView
     };
-})();
+})(galleryThumbnail);

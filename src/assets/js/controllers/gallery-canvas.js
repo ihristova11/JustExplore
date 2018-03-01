@@ -15,21 +15,7 @@ const galleryCanvas = (function() {
         return emptyCanvas;
     })();
 
-    const clearGalleryCanvas = function() {
-        if ($(".gallery")) {
-            $(".gallery .content-container").empty();
-        }
-    };
-
-    const closeGalleryCanvas = function() {
-        if ($(".gallery")) {
-            $(".actions-actuator").empty();
-        }
-    };
-
     return {
         getGalleryCanvas,
-        clearGalleryCanvas,
-        closeGalleryCanvas
     };
 })();
