@@ -37,6 +37,10 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 1px 1px 10px black;
 }
+
+button:focus {
+    outline: none;
+}
 .btn-up {
     float: left;
 }
