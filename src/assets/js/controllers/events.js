@@ -64,13 +64,13 @@ const events = (function (
       return;
     }
 
-    var targetName = $("p.node-name").text();
-    var target = searcher.findExactMatch(targetName);
-
-    if (target.isHome) {
+    var thisName = $("p.node-name").text();
+    var thisNode = searcher.findExactMatch(thisName);
+    if (thisNode.isHome) {
       return;
     }
 
+    var target = searcher.findExactMatch(thisNode.parentName);
     $(".gallery").on("click", ".btn-up", function () {
       galleryView(target);
     });
@@ -90,15 +90,13 @@ const events = (function (
 
     bindUpButton();
 
-    if (!childNodes.length) {
-      return;
+    if (childNodes && childNodes.length) {
+      node.childNodes.map(c => (function (c) {
+        $(".gallery .content-container").on("click", `#${c.name}`, function () {
+          galleryView(c);
+        });
+      })(c));
     }
-
-    node.childNodes.map(c => (function (c) {
-      $(".gallery .content-container").on("click", `#${c.name}`, function () {
-        galleryView(c);
-      });
-    })(c));
   };
 
   const clearGalleryCanvas = function () {

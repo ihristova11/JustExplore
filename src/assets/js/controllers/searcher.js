@@ -4,10 +4,8 @@ const searcher = (function (data) {
     const results = [];
 
     function dfs(value, node, results) {
-      if (!node.isHome) {
-        if (node.name.toLowerCase().indexOf(value.toLowerCase()) === 0) {
-          results.push(node);
-        }
+      if (node.name.toLowerCase().indexOf(value.toLowerCase()) === 0) {
+        results.push(node);
       }
 
       if (node.childNodes && node.childNodes.length) {
@@ -23,10 +21,8 @@ const searcher = (function (data) {
 
   const findExactMatch = function (value) {
     function dfs(value, node) {
-      if (!node.isHome) {
-        if (node.name.toLowerCase() === value.toLowerCase()) {
-          return node;
-        }
+      if (node.name.toLowerCase() === value.toLowerCase()) {
+        return node;
       }
 
       if (node.childNodes && node.childNodes.length) {
