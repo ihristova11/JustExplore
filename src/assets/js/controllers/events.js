@@ -46,6 +46,36 @@ const events = (function (
     });
   };
 
+  const bindEscpeKey = (function () {
+    $("body").on("keyup", function (e) {
+      if (!$(".gallery").length) {
+        return;
+      }
+
+      if (e.keyCode == 27) {
+        console.log(e);
+        closeGalleryCanvas();
+      }
+    });
+  })();
+
+  const bindUpButton = function () {
+    if (!$(".gallery").length) {
+      return;
+    }
+
+    var targetName = $("p.node-name").text();
+    var target = searcher.findExactMatch(targetName);
+
+    if (target.isHome) {
+      return;
+    }
+
+    $(".gallery").on("click", ".btn-up", function () {
+      galleryView(target);
+    });
+  };
+
   const galleryView = function (node) {
     if (!$(".gallery").length) {
       $(".actions-actuator").append(galleryCanvasCreator.getGalleryCanvas);
@@ -57,11 +87,18 @@ const events = (function (
     $(".gallery .content-container").append(
       galleryContentCreator.getThumbnailsView(node)
     );
+
+    bindUpButton();
+
+    if (!childNodes.length) {
+      return;
+    }
+
     node.childNodes.map(c => (function (c) {
-        $(".gallery .content-container").on("click", `#${c.name}`, function () {
-          galleryView(c);
-        });
-      })(c));
+      $(".gallery .content-container").on("click", `#${c.name}`, function () {
+        galleryView(c);
+      });
+    })(c));
   };
 
   const clearGalleryCanvas = function () {
