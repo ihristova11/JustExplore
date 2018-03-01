@@ -41,8 +41,8 @@ const events = (function (
     if (!$(".gallery").length) {
       return;
     }
-    $(".gallery").on("click", ".btn-close", function() {
-    closeGalleryCanvas();
+    $(".gallery").on("click", ".btn-close", function () {
+      closeGalleryCanvas();
     });
   };
 
@@ -57,16 +57,11 @@ const events = (function (
     $(".gallery .content-container").append(
       galleryContentCreator.getThumbnailsView(node)
     );
-    node.childNodes.map(
-      c =>
-      function () {
-        $(".gallery .content-container").on(
-          "click",
-          `#${c.name}`,
-          galleryView(c)
-        );
-      }
-    );
+    node.childNodes.map(c => (function (c) {
+        $(".gallery .content-container").on("click", `#${c.name}`, function () {
+          galleryView(c);
+        });
+      })(c));
   };
 
   const clearGalleryCanvas = function () {
