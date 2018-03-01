@@ -66,6 +66,7 @@ const events = (function (
 
     var thisName = $("p.node-name").text();
     var thisNode = searcher.findExactMatch(thisName);
+
     if (thisNode.isHome) {
       return;
     }
@@ -90,7 +91,7 @@ const events = (function (
 
     bindUpButton();
 
-    if (childNodes && childNodes.length) {
+    if (node.childNodes && node.childNodes.length) {
       node.childNodes.map(c => (function (c) {
         $(".gallery .content-container").on("click", `#${c.name}`, function () {
           galleryView(c);
